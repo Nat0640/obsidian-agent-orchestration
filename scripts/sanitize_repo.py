@@ -20,7 +20,11 @@ if sys.stdout.encoding != 'utf-8':
 # Configuration
 SCRIPT_DIR = os.path.dirname(os.path.abspath(__file__))
 PROJECT_DIR = os.path.dirname(SCRIPT_DIR)
+
+# Dynamically target 'dist/' if it exists, otherwise fall back to repository root (e.g. on GitHub CI)
 DIST_DIR = os.path.join(PROJECT_DIR, 'dist')
+if not os.path.exists(DIST_DIR):
+    DIST_DIR = PROJECT_DIR
 
 # Replacement patterns - ordered by specificity to prevent partial matches
 REPLACEMENTS = [
