@@ -23,11 +23,11 @@ Instead of using complex API backends (like FastAPIs, databases, Redis, or Celer
 ```mermaid
 sequenceDiagram
     autonumber
-    actor User as User / Mobile Telegram
-    participant Hermes as Hermes-agent (Telegram Bot)
-    participant AGY as Antigravity CLI (Gemini)
-    participant Claude as Claude Code (Sonnet)
-    database Vault as Obsidian
+    actor User as "User / Mobile Telegram"
+    participant Hermes as "Hermes-agent (Telegram Bot)"
+    participant AGY as "Antigravity CLI (Gemini)"
+    participant Claude as "Claude Code (Sonnet)"
+    database Vault as "Obsidian Vault (Markdown Specs)"
 
     User->>Hermes: 1 Send Voice/Text Command
     Hermes->>Vault: 2 Ingest Raw Capture to 00 Inbox/
