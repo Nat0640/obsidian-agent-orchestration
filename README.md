@@ -27,7 +27,7 @@ sequenceDiagram
     participant Hermes as Hermes-agent (Telegram Bot)
     participant AGY as Antigravity CLI (Gemini)
     participant Claude as Claude Code (Sonnet)
-    database Vault as Obsidian Vault Markdown_spec
+    database Vault as Obsidian Vault MD-spec
 
     User->>Hermes: 1 Send Voice/Text Command
     Hermes->>Vault: 2 Ingest Raw Capture to 00 Inbox/
