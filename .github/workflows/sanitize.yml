@@ -1,0 +1,35 @@
+name: Sanitization & Path Check
+
+on:
+  push:
+    branches: [ main ]
+  pull_request:
+    branches: [ main ]
+
+jobs:
+  check-sanitization:
+    runs-on: ubuntu-latest
+    steps:
+    - name: Checkout Code
+      uses: actions/checkout@v4
+
+    - name: Set up Python
+      uses: actions/setup-python@v5
+      with:
+        python-version: '3.x'
+
+    - name: Run Sanitizer (Dry Run Check)
+      run: |
+        python scripts/sanitize_repo.py
+        # Check if the python script made any changes (git status has changes)
+        if [ -n "$(git status --porcelain)" ]; then
+          echo "=================================================================="
+          echo "❌ ERROR: Unsanitized local paths or sensitive data detected!"
+          echo "The following files contain violations and were modified by sanitizer:"
+          git status --porcelain
+          echo "=================================================================="
+          git diff
+          exit 1
+        else
+          echo "✅ SUCCESS: All files are properly sanitized. No violations found."
+        fi

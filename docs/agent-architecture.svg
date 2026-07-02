@@ -1,0 +1,178 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 980 600" width="100%" height="100%">
+  <defs>
+    <style>
+      @import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600;700&amp;display=swap');
+      text { font-family: 'JetBrains Mono', 'SF Mono', 'Cascadia Code', monospace; }
+    </style>
+    <pattern id="grid" width="40" height="40" patternUnits="userSpaceOnUse">
+      <path d="M 40 0 L 0 0 0 40" fill="none" stroke="#1e293b" stroke-width="0.5"/>
+    </pattern>
+    <!-- Arrow Markers -->
+    <marker id="arrow-cyan" markerWidth="8" markerHeight="6" refX="7" refY="3" orient="auto">
+      <polygon points="0 0, 8 3, 0 6" fill="#22d3ee"/>
+    </marker>
+    <marker id="arrow-emerald" markerWidth="8" markerHeight="6" refX="7" refY="3" orient="auto">
+      <polygon points="0 0, 8 3, 0 6" fill="#34d399"/>
+    </marker>
+    <marker id="arrow-blue" markerWidth="8" markerHeight="6" refX="7" refY="3" orient="auto">
+      <polygon points="0 0, 8 3, 0 6" fill="#60a5fa"/>
+    </marker>
+    <marker id="arrow-orange" markerWidth="8" markerHeight="6" refX="7" refY="3" orient="auto">
+      <polygon points="0 0, 8 3, 0 6" fill="#fb923c"/>
+    </marker>
+    <marker id="arrow-violet" markerWidth="8" markerHeight="6" refX="7" refY="3" orient="auto">
+      <polygon points="0 0, 8 3, 0 6" fill="#a78bfa"/>
+    </marker>
+    <marker id="arrow-slate" markerWidth="8" markerHeight="6" refX="7" refY="3" orient="auto">
+      <polygon points="0 0, 8 3, 0 6" fill="#64748b"/>
+    </marker>
+    <!-- Reverse markers for bidirectional paths -->
+    <marker id="arrow-orange-rev" markerWidth="8" markerHeight="6" refX="1" refY="3" orient="auto">
+      <polygon points="8 0, 0 3, 8 6" fill="#fb923c"/>
+    </marker>
+    <marker id="arrow-emerald-rev" markerWidth="8" markerHeight="6" refX="1" refY="3" orient="auto">
+      <polygon points="8 0, 0 3, 8 6" fill="#34d399"/>
+    </marker>
+    <marker id="arrow-blue-rev" markerWidth="8" markerHeight="6" refX="1" refY="3" orient="auto">
+      <polygon points="8 0, 0 3, 8 6" fill="#60a5fa"/>
+    </marker>
+  </defs>
+  
+  <!-- Background Grid -->
+  <rect width="100%" height="100%" fill="#0f172a"/>
+  <rect width="100%" height="100%" fill="url(#grid)"/>
+
+  <!-- ==================== REGION BOUNDARIES ==================== -->
+  
+  <!-- Local Execution Environment Region -->
+  <rect x="300" y="80" width="220" height="470" rx="12" fill="none" stroke="#fbbf24" stroke-width="1.2" stroke-dasharray="8,4"/>
+  <text x="315" y="102" fill="#fbbf24" font-size="9" font-weight="600">Local Dev Environment (CMD / PowerShell)</text>
+
+  <!-- Obsidian Vault Region -->
+  <rect x="620" y="80" width="300" height="470" rx="12" fill="none" stroke="#a78bfa" stroke-width="1.2" stroke-dasharray="8,4"/>
+  <text x="635" y="102" fill="#a78bfa" font-size="9" font-weight="600">Obsidian Vault (PARA Workspace)</text>
+
+  <!-- ==================== CONNECTION PATHS ==================== -->
+  
+  <!-- 1a. User Telegram -> Hermes-agent -->
+  <path d="M 240,125 L 320,125" fill="none" stroke="#34d399" stroke-width="1.5" marker-end="url(#arrow-emerald)"/>
+  <text x="280" y="117" fill="#34d399" font-size="7.5" font-weight="600" text-anchor="middle">1a. Voice/Text</text>
+
+  <!-- 1b. User IDE -> Antigravity CLI -->
+  <path d="M 240,305 L 320,305" fill="none" stroke="#22d3ee" stroke-width="1.5" marker-end="url(#arrow-cyan)"/>
+  <text x="280" y="297" fill="#22d3ee" font-size="7.5" font-weight="600" text-anchor="middle">1b. Goal/Prompt</text>
+
+  <!-- 2a. Hermes-agent -> 00 Inbox -->
+  <path d="M 500,135 L 650,135" fill="none" stroke="#34d399" stroke-width="1.5" marker-end="url(#arrow-emerald)"/>
+  <text x="575" y="127" fill="#34d399" font-size="7.5" font-weight="600" text-anchor="middle">2a. Triage Ingest</text>
+
+  <!-- 2b. Hermes-agent <-> Pipeline Spec (Multi-segment) -->
+  <path d="M 500,155 L 560,155 L 560,280 L 650,280" fill="none" stroke="#fb923c" stroke-width="1.5" stroke-dasharray="3,2" marker-start="url(#arrow-orange-rev)" marker-end="url(#arrow-orange)"/>
+  <text x="565" y="215" fill="#fb923c" font-size="7.5" font-weight="500" text-anchor="start">2b. Poll / Log Spec</text>
+
+  <!-- 3. Antigravity CLI <-> Pipeline Spec -->
+  <path d="M 500,305 L 650,305" fill="none" stroke="#fb923c" stroke-width="1.5" marker-start="url(#arrow-orange-rev)" marker-end="url(#arrow-orange)"/>
+  <text x="575" y="297" fill="#fb923c" font-size="7.5" font-weight="600" text-anchor="middle">3. Manage Spec Bus</text>
+
+  <!-- 4. Antigravity CLI -> Claude Code -->
+  <path d="M 410,340 L 410,440" fill="none" stroke="#60a5fa" stroke-width="1.5" marker-end="url(#arrow-blue)"/>
+  <text x="415" y="395" fill="#60a5fa" font-size="7.5" font-weight="600" text-anchor="start">4. Delegate Task</text>
+
+  <!-- 5a. Claude Code <-> Pipeline Spec (Multi-segment) -->
+  <path d="M 500,460 L 580,460 L 580,310 L 650,310" fill="none" stroke="#fb923c" stroke-width="1.5" stroke-dasharray="3,2" marker-start="url(#arrow-orange-rev)" marker-end="url(#arrow-orange)"/>
+  <text x="585" y="390" fill="#fb923c" font-size="7.5" font-weight="500" text-anchor="start">5a. Release Lock</text>
+
+  <!-- 5b. Claude Code <-> Daily Notes & Projects -->
+  <path d="M 500,485 L 650,485" fill="none" stroke="#60a5fa" stroke-width="1.5" marker-start="url(#arrow-blue-rev)" marker-end="url(#arrow-blue)"/>
+  <text x="575" y="477" fill="#60a5fa" font-size="7.5" font-weight="600" text-anchor="middle">5b. Edit/Refactor Files</text>
+
+  <!-- 6. Antigravity CLI -> Hermes-agent -->
+  <path d="M 380,270 L 380,170" fill="none" stroke="#34d399" stroke-width="1.5" stroke-dasharray="4,2" marker-end="url(#arrow-emerald)"/>
+  <text x="375" y="225" fill="#34d399" font-size="7.5" font-weight="600" text-anchor="end">6. Run Workflow</text>
+
+  <!-- 7. Hermes-agent -> User Telegram -->
+  <path d="M 320,145 L 240,145" fill="none" stroke="#34d399" stroke-width="1.5" stroke-dasharray="4,2" marker-end="url(#arrow-emerald)"/>
+  <text x="280" y="157" fill="#34d399" font-size="7.5" font-weight="500" text-anchor="middle">7. Telegram Notify</text>
+
+  <!-- ==================== COMPONENT BOXES ==================== -->
+  
+  <!-- 1. User / Telegram -->
+  <rect x="60" y="100" width="180" height="70" rx="6" fill="#0f172a"/>
+  <rect x="60" y="100" width="180" height="70" rx="6" fill="rgba(8,51,68,0.4)" stroke="#22d3ee" stroke-width="1.5"/>
+  <text x="150" y="130" fill="white" font-size="11" font-weight="600" text-anchor="middle">User / Telegram</text>
+  <text x="150" y="146" fill="#94a3b8" font-size="8.5" text-anchor="middle">Triggers on mobile</text>
+
+  <!-- 2. User / IDE -->
+  <rect x="60" y="270" width="180" height="70" rx="6" fill="#0f172a"/>
+  <rect x="60" y="270" width="180" height="70" rx="6" fill="rgba(8,51,68,0.4)" stroke="#22d3ee" stroke-width="1.5"/>
+  <text x="150" y="300" fill="white" font-size="11" font-weight="600" text-anchor="middle">User / Developer</text>
+  <text x="150" y="316" fill="#94a3b8" font-size="8.5" text-anchor="middle">IDE Chat / Terminal</text>
+
+  <!-- 3. Hermes-agent -->
+  <rect x="320" y="100" width="180" height="70" rx="6" fill="#0f172a"/>
+  <rect x="320" y="100" width="180" height="70" rx="6" fill="rgba(6,78,59,0.4)" stroke="#34d399" stroke-width="1.5"/>
+  <text x="410" y="128" fill="white" font-size="11" font-weight="600" text-anchor="middle">Hermes-agent</text>
+  <text x="410" y="142" fill="#94a3b8" font-size="8" text-anchor="middle">Orchestration &amp; Webhook</text>
+  <text x="410" y="154" fill="#a7f3d0" font-size="7.5" font-weight="500" text-anchor="middle">(Nemotron-3-Super)</text>
+
+  <!-- 4. Antigravity CLI -->
+  <rect x="320" y="270" width="180" height="70" rx="6" fill="#0f172a"/>
+  <rect x="320" y="270" width="180" height="70" rx="6" fill="rgba(6,78,59,0.4)" stroke="#34d399" stroke-width="1.5"/>
+  <text x="410" y="298" fill="white" font-size="11" font-weight="600" text-anchor="middle">Antigravity CLI</text>
+  <text x="410" y="312" fill="#94a3b8" font-size="8" text-anchor="middle">Central Workspace Agent</text>
+  <text x="410" y="324" fill="#a7f3d0" font-size="7.5" font-weight="500" text-anchor="middle">(Gemini 3.5 Flash)</text>
+
+  <!-- 5. Claude Code -->
+  <rect x="320" y="440" width="180" height="70" rx="6" fill="#0f172a"/>
+  <rect x="320" y="440" width="180" height="70" rx="6" fill="rgba(59,130,246,0.2)" stroke="#60a5fa" stroke-width="1.5"/>
+  <text x="410" y="468" fill="white" font-size="11" font-weight="600" text-anchor="middle">Claude Code</text>
+  <text x="410" y="482" fill="#94a3b8" font-size="8" text-anchor="middle">Interactive Developer CLI</text>
+  <text x="410" y="494" fill="#bfdbfe" font-size="7.5" font-weight="500" text-anchor="middle">(Laguna-M.1 / Sonnet)</text>
+
+  <!-- 6. 00 Inbox -->
+  <rect x="650" y="110" width="240" height="60" rx="6" fill="#0f172a"/>
+  <rect x="650" y="110" width="240" height="60" rx="6" fill="rgba(76,29,149,0.3)" stroke="#a78bfa" stroke-width="1.5"/>
+  <text x="770" y="138" fill="white" font-size="11" font-weight="600" text-anchor="middle">00 Inbox /</text>
+  <text x="770" y="152" fill="#d8b4fe" font-size="8.5" text-anchor="middle">Input Gateway &amp; Web Clips</text>
+
+  <!-- 7. Pipeline Spec (Connector / State Bus) -->
+  <rect x="650" y="250" width="240" height="90" rx="6" fill="#0f172a"/>
+  <rect x="650" y="250" width="240" height="90" rx="6" fill="rgba(251,146,60,0.2)" stroke="#fb923c" stroke-width="1.5"/>
+  <text x="770" y="282" fill="white" font-size="11" font-weight="700" text-anchor="middle">Pipeline Spec &amp; State Bus</text>
+  <text x="770" y="298" fill="#fdba74" font-size="8.5" font-weight="500" text-anchor="middle">(File-Based State Machine)</text>
+  <text x="770" y="316" fill="#fdd1a9" font-size="8" text-anchor="middle">Locking &amp; Callback Management</text>
+
+  <!-- 8. Daily Notes & Projects -->
+  <rect x="650" y="430" width="240" height="90" rx="6" fill="#0f172a"/>
+  <rect x="650" y="430" width="240" height="90" rx="6" fill="rgba(76,29,149,0.3)" stroke="#a78bfa" stroke-width="1.5"/>
+  <text x="770" y="462" fill="white" font-size="11" font-weight="600" text-anchor="middle">Knowledge base &amp; Logs</text>
+  <text x="770" y="478" fill="#d8b4fe" font-size="8" text-anchor="middle">zDailyNotes/ &amp; Work/ Projects</text>
+  <text x="770" y="494" fill="#e9d5ff" font-size="8" text-anchor="middle">Compounding Ingest Destinations</text>
+
+  <!-- ==================== HEADER / TITLE ==================== -->
+  <text x="25" y="35" fill="white" font-size="15" font-weight="700">Agent Harness Architecture &amp; Interaction Flow (Updated)</text>
+  <text x="25" y="52" fill="#94a3b8" font-size="9" font-weight="400">Structural layout showing bidirectional State Bus &amp; Telegram command gateway</text>
+
+  <!-- ==================== LEGEND ==================== -->
+  <g transform="translate(60, 560)">
+    <!-- Cyan Legend -->
+    <rect x="0" y="0" width="10" height="10" rx="2" fill="rgba(8,51,68,0.4)" stroke="#22d3ee" stroke-width="1"/>
+    <text x="15" y="8" fill="#94a3b8" font-size="8">User/Frontend</text>
+
+    <!-- Emerald Legend -->
+    <rect x="110" y="0" width="10" height="10" rx="2" fill="rgba(6,78,59,0.4)" stroke="#34d399" stroke-width="1"/>
+    <text x="125" y="8" fill="#94a3b8" font-size="8">Orchestrator</text>
+
+    <!-- Blue Legend -->
+    <rect x="210" y="0" width="10" height="10" rx="2" fill="rgba(59,130,246,0.2)" stroke="#60a5fa" stroke-width="1"/>
+    <text x="225" y="8" fill="#94a3b8" font-size="8">Local Execution</text>
+
+    <!-- Orange Legend -->
+    <rect x="330" y="0" width="10" height="10" rx="2" fill="rgba(251,146,60,0.2)" stroke="#fb923c" stroke-width="1"/>
+    <text x="345" y="8" fill="#94a3b8" font-size="8">Communication Bus</text>
+
+    <!-- Violet Legend -->
+    <rect x="470" y="0" width="10" height="10" rx="2" fill="rgba(76,29,149,0.3)" stroke="#a78bfa" stroke-width="1"/>
+    <text x="485" y="8" fill="#94a3b8" font-size="8">Obsidian Database</text>
+  </g>
+</svg>
