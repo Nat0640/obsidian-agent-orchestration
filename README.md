@@ -29,21 +29,21 @@ sequenceDiagram
     participant Claude as Claude Code (Sonnet)
     database Vault as Obsidian Vault (Markdown Specs)
 
-    User->>Hermes: 1. Send Voice/Text Command
-    Hermes->>Vault: 2. Ingest Raw Capture to 00 Inbox/
-    User->>AGY: 3. Initialize Goal/Task (via IDE or Terminal)
-    AGY->>Vault: 4. Create Pipeline Spec (State: Ready)
+    User->>Hermes: 1 Send Voice/Text Command
+    Hermes->>Vault: 2 Ingest Raw Capture to 00 Inbox/
+    User->>AGY: 3 Initialize Goal/Task (via IDE or Terminal)
+    AGY->>Vault: 4 Create Pipeline Spec (State: Ready)
     
     rect rgb(30, 41, 59)
         note right of AGY: File-Based State Machine Loop
-        AGY->>Vault: 5. Acquire Lock (Lock: Antigravity, State: Running)
-        AGY->>Claude: 6. Delegate Task (Draft Spec Contract in Inbox)
-        Claude->>Vault: 7. Perform Work, Release Lock, Update Spec State
-        Vault-->>AGY: 8. Poll Result & Update Main Status
+        AGY->>Vault: 5 Acquire Lock (Lock: Antigravity, State: Running)
+        AGY->>Claude: 6 Delegate Task (Draft Spec Contract in Inbox)
+        Claude->>Vault: 7 Perform Work, Release Lock, Update Spec State
+        Vault-->>AGY: 8 Poll Result & Update Main Status
     end
     
-    AGY->>Hermes: 9. Trigger Finish Callback Notification
-    Hermes-->>User: 10. Send Telegram Success Alert
+    AGY->>Hermes: 9 Trigger Finish Callback Notification
+    Hermes-->>User: 10 Send Telegram Success Alert
 ```
 
 ---
